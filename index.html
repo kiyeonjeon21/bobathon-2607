@@ -997,7 +997,7 @@
             <td class="clock">14:35</td>
             <td class="dur">20</td>
             <td class="phase">LAB 1<small>Build</small></td>
-            <td class="what"><strong>직접 합니다.</strong> <code>/init</code>로 <code>AGENTS.md</code>를 만들고 <strong>팀 규칙 3개를 박아 넣은 뒤</strong>, Ask → Plan → Agent로 기능 하나를 붙입니다. 승부는 코드가 나오는 장면이 아니라 <strong>아무도 시키지 않은 팀 규칙이 지켜진 장면</strong>에서 납니다.</td>
+            <td class="what"><strong>먼저 환경을 초록으로 맞춘 뒤</strong>, 이미 있는 <code>AGENTS.md</code>에 <strong>팀 규칙을 박고</strong> Ask → Plan → Agent로 기능 하나를 붙입니다. 승부는 코드가 나오는 장면이 아니라 <strong>아무도 시키지 않은 팀 규칙이 지켜진 장면</strong>에서 납니다.</td>
             <td class="out"><code>AGENTS.md</code><br>기능 1개 + 테스트</td>
           </tr>
           <tr class="labrow">
@@ -1066,7 +1066,7 @@
           <dt>무엇을 만드나</dt>
           <dd>Python 백엔드에 <em>예약 변경 엔드포인트</em> <code>POST /bookings/{id}/reschedule</code>를 추가합니다.</dd>
           <dt>어떻게</dt>
-          <dd><code>AGENTS.md</code>에 <strong>팀 규칙</strong>을 박고 → Ask로 훑고 → Plan으로 계획을 검토하고 → Agent로 구현합니다.</dd>
+          <dd><strong>환경 점검</strong> → <code>AGENTS.md</code>에 <strong>팀 규칙</strong>을 박고 → Ask → Plan → Agent로 구현합니다.</dd>
           <dt>손에 남는 것</dt>
           <dd><em>AGENTS.md</em> 팀 컨벤션 + 엔드포인트 + MCP 도구 + 테스트</dd>
           <dt>핵심 장면</dt>
@@ -1120,7 +1120,7 @@
         <div class="rule"></div>
         <div class="n">LAB 1 · 14:35 – 14:55 · 20분</div>
         <h3>Build — Bob이 우리 팀 규칙을 따른다</h3>
-        <div class="sub">스타터 레포를 열고 <code>/init</code>부터. 모든 참가자가 같은 화면을 봅니다.</div>
+        <div class="sub">먼저 <strong>환경을 초록으로 맞추고</strong>, 팀 규칙을 박은 뒤 첫 기능을 만듭니다. 모두 같은 스타터 레포에서 시작합니다.</div>
       </div>
 
       <div class="lab-out">
@@ -1137,21 +1137,26 @@
           <tbody>
             <tr>
               <td class="clock">0–3</td>
-              <td class="mode">—</td>
-              <td class="do">이 레포엔 <strong>이미 <code>AGENTS.md</code>가 있습니다</strong>(9KB). 열어 보세요. 그런데 전부 <strong>“설명”</strong>입니다 — “이 레포는 이렇게 생겼다”. <strong>“너는 이렇게 해야 한다”가 없습니다.</strong> 비어 있는 <code>## Team conventions</code> 섹션에 <code>CONVENTIONS.md</code>의 규칙 4개를 붙여넣으세요.</td>
+              <td class="mode">셋업</td>
+              <td class="do"><strong>환경 점검 &amp; 셋업.</strong> 스타터 레포 열기 · Bob 실행 · <strong>Advanced 모드 켜짐 확인</strong> · <code>cd booking_system_backend &amp;&amp; pytest -q</code> 한 번 → <strong>초록.</strong> 빨강이면 손 드세요. <strong>준비가 안 된 사람은 옆자리와 페어</strong>로 진행합니다 — 여기서 걸러야 11분에 안 터집니다.</td>
             </tr>
             <tr>
-              <td class="clock">3–6</td>
+              <td class="clock">3–5</td>
+              <td class="mode">—</td>
+              <td class="do">이 레포엔 <strong>이미 <code>AGENTS.md</code>가 있습니다</strong>(9KB). 그런데 전부 <strong>“설명”</strong>입니다 — “이 레포는 이렇게 생겼다”. <strong>“너는 이렇게 해야 한다”가 없습니다.</strong> 비어 있는 <code>## Team conventions</code> 섹션에 <code>CONVENTIONS.md</code>의 규칙 4개를 붙여넣으세요.</td>
+            </tr>
+            <tr>
+              <td class="clock">5–8</td>
               <td class="mode">Ask</td>
               <td class="do">“예약의 생성·취소가 어디서 일어나는지, <strong>항공편 변경(reschedule)</strong> 엔드포인트를 추가하려면 어떤 파일을 건드려야 하는지 알려줘.” → Ask 모드는 <strong>파일을 못 고칩니다.</strong> 낯선 레포를 마음껏 탐색해도 안전한 이유입니다.</td>
             </tr>
             <tr>
-              <td class="clock">6–11</td>
+              <td class="clock">8–12</td>
               <td class="mode">Plan</td>
               <td class="do">“<code>POST /bookings/{id}/reschedule</code>을 계획하고 <code>plan/reschedule.md</code>에 저장해.” (없는 예약 404 · 취소된 예약 409 · 좌석 없음 409 · 좌석 재고 이동 + 요금 차액) → <strong>계획 파일을 실제로 열어서 읽습니다.</strong></td>
             </tr>
             <tr>
-              <td class="clock">11–17</td>
+              <td class="clock">12–17</td>
               <td class="mode">Agent</td>
               <td class="do">“<code>@plan/reschedule.md</code> 구현해줘.” → 이어서 <code>pytest tests/test_rest.py -k Reschedule</code></td>
             </tr>
